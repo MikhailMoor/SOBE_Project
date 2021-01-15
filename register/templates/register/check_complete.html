@@ -1,0 +1,90 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+
+    <!--Загаловок страницы-->
+    <title>SOBE</title>
+
+    <!--Иконка сайта-->
+    <link rel="shortcut icon" href="{% static 'main/img/logo_yellow.svg' %}" >
+    
+
+    <!--Tailwind CSS-->
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss/dist/tailwind.min.css">
+
+    <!--Шрифт-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300&family=Nunito+Sans&display=swap" rel="stylesheet">
+
+    <!--Основная палитра-->
+    <style>
+        .blackbg{
+            background: #101010;
+        }
+        .yellowbg{
+            background: #FFCE38;
+        }
+        .pinkbg{
+            background: #FF3D67;
+        }
+        .whitebg{
+            background: #FFFDFD;
+        }
+        .blackfont{
+            color: #101010;
+        }
+        .whitefont{
+            color: #FFFDFD;
+        }
+        .yellowfont{
+            color: #FFCE38;
+        }
+    </style>
+
+</head>
+
+
+<body class="leading-normal tracking-normal blackbg whitefont" style="font-family: 'Hind Siliguri', sans-serif;">
+   
+     
+    <nav class="fixed flex items-center justify-between flex-wrap ">
+        <div class="fixed w-full z-30 top-0 py-2 flex flex-row justify-between yellowbg">
+            <div class="block ml-2 rounded-lg flex flex-row blackbg">
+                <div class="place-self-center flex flex-row align-center">
+                    <p class="place-self-center hover:text-black font-bold text-xs sm:text-sm md:text-base mx-4 mr-2 my-2 yellowfont" style="font-family: 'Nunito Sans'">SOBE</p>
+                    <img src="{% static 'main/img/logo_yellow.svg' %}" class="mx-4 w-4 h-4 place-self-center my-auto" alt="Лого">
+
+                </div>
+
+            </div>
+        </div>
+
+    </nav>
+
+    <div class="flex flex-col h-screen">
+        <div class="m-auto whitebg px-8 pt-4 pb-2">
+            <form class="px-8 pt-6 pb-8 mb-4 whitebg" method="post">
+                 {% csrf_token %}
+                <div class="mb-4">
+                    <label class="block mb-2 text-sm font-bold blackfont" for="key_answer">Input new password</label>
+                    {{ form.password1 }}
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="w-full py-3 font-medium tracking-widest whitefont uppercase blackbg shadow-lg focus:outline-none hover:shadow-none hover:bg-gray-200  border hover:text-black border-black" type="button">Reset Password</button>
+                </div>
+            <form>
+        </div>
+    </div>
+    
+
+
+
+</body>
+</html>
