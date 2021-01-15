@@ -1,0 +1,16 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<div class="flex flex-wrap h-screen ">
+       
+    <div class="flex flex-col m-auto text-center">
+	    <a href="{% url 'change_avatar_photo' %}" type="button" class="mt-16 mb-4 h-auto text-center text-2xl blackbg py-2 px-6 focus:outline-none whitefont hover:bg-white border-2 hover:text-black font-bold border-white rounded-lg mx-4">Change avatar photo</a>
+	    <a href="{% url 'change_username' %}" type="button" class="my-4 h-auto text-center text-2xl blackbg py-2 px-6 focus:outline-none whitefont hover:bg-white border-2 hover:text-black font-bold border-white rounded-lg mx-4">Change username</a>
+	    <a href="{% url 'change_password_one' %}" type="button" class="my-4 h-auto text-center text-2xl blackbg py-2 px-6 focus:outline-none whitefont hover:bg-white border-2 hover:text-black font-bold border-white rounded-lg mx-4">Change password</a>
+	    <a href="{% url 'change_email_address_one' %}" type="button" class="my-4 h-auto text-center text-2xl blackbg py-2 px-6 focus:outline-none whitefont hover:bg-white border-2 hover:text-black font-bold border-white rounded-lg mx-4">Change email address</a>
+	    <a href="{% url 'change_first_name' %}" type="button" class="my-4 h-auto text-center text-2xl blackbg py-2 px-6 focus:outline-none whitefont hover:bg-white border-2 hover:text-black font-bold border-white rounded-lg mx-4">Change first name</a>
+	    <a href="{% url 'change_last_name' %}" type="button" class="my-4 h-auto text-center text-2xl blackbg py-2 px-6 focus:outline-none whitefont hover:bg-white border-2 hover:text-black font-bold border-white rounded-lg mx-4">Change last name</a>
+ 	</div>
+		
+</div>
+{% endblock %}
