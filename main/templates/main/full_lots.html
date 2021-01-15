@@ -1,0 +1,104 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<div class="pt-24">
+    
+</div>
+{% load static %}
+
+<div class="flex flex-row flex-wrap justify-center mx-4">
+
+        {{data}}
+</div>
+
+
+
+<style>
+        .blackbg{
+            background: #101010;
+        }
+        .yellowbg{
+            background: #FFCE38;
+        }
+        .pinkbg{
+            background: #FF3D67;
+        }
+        .whitebg{
+            background: #FFFDFD;
+        }
+        .blackfont{
+            color: #101010;
+        }
+        .whitefont{
+            color: #FFFDFD;
+        }
+        .yellowfont{
+            color: #FFCE38;
+        }
+
+
+    </style>
+
+
+
+
+
+
+
+    <div class="my-4 mb-16 container px-5 py-24 mx-auto bg-white rounded-lg">
+        <div class="lg:w-4/5 mx-auto flex justify-center">
+            {% if is_closed != True %}
+                    <img alt="ecommerce" class="max-h-72 w-auto object-cover object-center rounded border border-gray-200" src={{ image }}>
+                    {% else %}
+                        <img alt="ecommerce" style="-webkit-filter: grayscale(100%); filter: grayscale(100%);" class="max-h-72 w-auto object-cover object-center rounded border border-gray-200" src={{ image }}>
+            {% endif %}
+            <div class="my-4 mx-8 flex flex-col justify-between">
+
+                <div>
+                    <h2 class="text-sm  text-gray-500 tracking-widest">{{ categories }}</h2>
+                    <h1 class="text-gray-900 text-3xl font-medium mb-1">{{ name_lots }}</h1>
+                    <div class="flex items-center">
+                        <a class="blackfont font-bold hover:text-blue-600 " href="#">{{ seller }}</a>
+                        {% if sel_avatar_img == None %}
+                            <img src={% static 'main/img/standart_avatar.svg' %} class="w-8 h-8 rounded-full mx-4">
+                        {% else %}
+                            <img src={{ avatar_img }} class="w-8 h-8 rounded-full mx-4">
+                        {% endif %}
+
+                        <span class="flex py-2 border-l-2 border-gray-200">
+                        <a class="ml-2 text-gray-500">
+                          <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                            <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"></path>
+                          </svg>
+                        </a>
+                      </span>
+                    </div>
+                    <h1 class="my-4 text-sm blackfont whitespace-normal w-full" > {{description}}</h1>
+                </div>
+                <div class="border-t-2 border-gray-200">
+                        <h2 class="text-sm  text-gray-500 tracking-widest">{{ regions }}</h2>
+                        <h2 class="text-sm  text-gray-500 tracking-widest">Count: {{ count }}</h2>
+                        <div class="flex items-center">
+                            {% if is_closed != True %}
+                                    <div class="flex items-center">
+                                        <span class="title-font font-medium text-2xl blackfont font-bold">{{ price }}</span>
+                                        <img src={% static 'main/img/coins.svg' %} class="mx-2 w-8 h-8 place-self-center">
+                                    </div>
+                                    <a class="pinkbg py-2 px-6 focus:outline-none blackfont hover:bg-black border-2 hover:text-white font-bold border-black rounded-lg mx-4" href="{% url 'next' id_lots %}">Exchange</a>
+                                    {% else %}
+                                        <span class="title-font font-medium text-2xl blackfont font-bold mr-4">Lot closed!</span>
+                            {% endif %}
+
+
+                              <button class="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500">
+                                <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                                  <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"></path>
+                                </svg>
+                              </button>
+                        </div><!-- next/{{id_lots}} -->
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
